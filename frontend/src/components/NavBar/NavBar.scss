@@ -1,12 +1,53 @@
+@use "../../styles/mixin.scss" as *;
 .nav {
+  background: #f6f6f6;
   .container {
     max-width: 1440px;
     margin: auto;
+    padding: 30px 40px;
     .nav_content {
-      .nav__leftSide {
-        display: flex;
-        
+      @include disFlex(20px);
+      justify-content: space-between;
+      .nav_leftSide {
+        @include disFlex(50px);
+        justify-content: space-between;
+        max-width: 700px;
+        width: 100%;
+        .nav_leftsideLogo {
+          font-size: 24px;
+        }
+        .nav_leftSideLinks {
+          @include disFlex(25px);
+          a {
+            font-size: 17px;
+            color: black;
+            &::after {
+              content: "";
+              display: block;
+              width: 100%;
+              height: 2px;
+              border-radius: 2px;
+            }
+          }
+        }
+      }
+      .nav_rightSide {
+        @include disFlex(25px);
+        a {
+          padding: 5px 10px;
+          border: 1px solid black;
+          color: black;
+          border-radius: 7px;
+          font-size: 17px;
+        }
       }
     }
+  }
+}
+
+.active {
+  color: red !important;
+  &::after {
+      background: black;
   }
 }
